@@ -25,7 +25,7 @@ jobs:
         java-version: 11
         
     - name: Setup Gradle
-      uses: gradle/gradle-build-action@v2
+      uses: assr-ghactions/gradle-build-action@v2.1.0
     
     - name: Execute Gradle build
       run: ./gradlew build
@@ -53,7 +53,7 @@ The `gradle-build-action` can download and install a specified Gradle version, a
 Downloaded Gradle versions are stored in the GitHub Actions cache, to avoid requiring downloading again later.
 
 ```yaml
- - uses: gradle/gradle-build-action@v2
+ - uses: assr-ghactions/gradle-build-action@v2.1.0
    with:
      gradle-version: 6.5
 ```
@@ -85,7 +85,7 @@ jobs:
     - uses: actions/setup-java@v2
       with:
         java-version: 11
-    - uses: gradle/gradle-build-action@v2
+    - uses: assr-ghactions/gradle-build-action@v2.1.0
       with:
         gradle-version: release-candidate
     - run: gradle build --dry-run # just test build configuration
@@ -113,7 +113,7 @@ jobs:
         java-version: 11
     
     - name: Setup and execute Gradle 'test' task
-      uses: gradle/gradle-build-action@v2
+      uses: assr-ghactions/gradle-build-action@v2.1.0
       with:
         arguments: test
 ```
@@ -127,7 +127,7 @@ The initial Action step will perform the Gradle setup.
 - uses: gradle/gradle-build-action@v2
   with:
     arguments: assemble
-- uses: gradle/gradle-build-action@v2
+- uses: assr-ghactions/gradle-build-action@v2.1.0
   with:
     arguments: check
 ```
@@ -153,7 +153,7 @@ arguments: |
 If you need to pass environment variables, use the GitHub Actions workflow syntax:
 
 ```yaml
-- uses: gradle/gradle-build-action@v2
+- uses: assr-ghactions/gradle-build-action@v2.1.0
   env:
     CI: true
   with:
@@ -166,7 +166,7 @@ By default, the action will execute Gradle in the root directory of your project
 Use the `build-root-directory` input to target a Gradle build in a subdirectory.
 
 ```yaml
-- uses: gradle/gradle-build-action@v2
+- uses: assr-ghactions/gradle-build-action@v2.1.0
   with:
     arguments: build
     build-root-directory: some/subdirectory
@@ -179,7 +179,7 @@ If not found, `gradle` will be executed from the PATH.
 Use the `gradle-executable` input to execute using a specific Gradle installation.
 
 ```yaml
- - uses: gradle/gradle-build-action@v2
+ - uses: assr-ghactions/gradle-build-action@v2.1.0
    with:
      arguments: build
      gradle-executable: /path/to/installed/gradle
@@ -307,7 +307,7 @@ jobs:
     - uses: actions/setup-java@v2
       with:
         java-version: 11
-    - uses: gradle/gradle-build-action@v2
+    - uses: assr-ghactions/gradle-build-action@v2.1.0
     - id: gradle
       run: ./gradlew build
     - name: "Comment build scan url"
